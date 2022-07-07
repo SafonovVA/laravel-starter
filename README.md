@@ -1,5 +1,13 @@
 # Laravel Template
 
+### Change repository
+```bash
+git remote rename origin old-origin
+git remote add origin git@gitlab.ffin.kz:<user>/<repository>.git
+git push -u origin --all
+git push -u origin --tags
+```
+
 ### Starting
 ```bash
 php artisan migrate --seed
