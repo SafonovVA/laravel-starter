@@ -9,6 +9,11 @@ git push -u origin --tags
 ```
 
 ### Starting
+Rename `APP_NAME` in `.env.docker`
+```dotenv
+APP_NAME=NEW_APP_NAME
+```
+then using local machine
 ```bash
 php artisan migrate --seed
 ```
