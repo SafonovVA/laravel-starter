@@ -23,9 +23,9 @@ build:
 	${php_container} php artisan migrate:fresh --seed
 	${php_container} php artisan storage:link
 	${php_container} php artisan optimize:clear
-	${npm} install
+	${npm} install --silent
 	${npm} run build
-	echo "Build completed."
+	echo 'Build success. App started at $(APP_URL)'
 
 .PHONY: up
 up:
