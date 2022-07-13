@@ -52,3 +52,10 @@ composer cs-fix
 ```
 ### Docker support
 Look at `Makefile`
+
+### If you need to connect to container
+```shell
+$ docker exec -it APP_NAME_{php|scheduler|queue|websocket} bash
+$ docker exec -it APP_NAME_redis redis-cli
+$ docker exec -it APP_NAME_pgsql psql -U APP_NAME_admin -d APP_NAME
+```

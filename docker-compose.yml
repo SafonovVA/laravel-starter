@@ -41,21 +41,21 @@ services:
             - 'pgsql-volume:/var/lib/postgresql/data'
         networks:
             - network
-    #    mssql:
-    #        build:
-    #            context: docker/mssql
-    #        restart: unless-stopped
-    #        container_name: ${APP_NAME}_mssql
-    #        user: root
-    #        ports:
-    #            - '${FORWARD_DB_PORT:-1433}:1433'
-    #        environment:
-    #            SA_PASSWORD: ${DB_PASSWORD}
-    #            ACCEPT_EULA: "Y"
-    #        volumes:
-    #            - 'mssql-volume:/var/opt/mssql/data'
-    #        networks:
-    #            - network
+#    mssql:
+#        build:
+#            context: docker/mssql
+#        restart: unless-stopped
+#        container_name: ${APP_NAME}_mssql
+#        user: root
+#        ports:
+#            - '${FORWARD_DB_PORT:-1433}:1433'
+#        environment:
+#            SA_PASSWORD: ${DB_PASSWORD}
+#            ACCEPT_EULA: "Y"
+#        volumes:
+#            - 'mssql-volume:/var/opt/mssql/data'
+#        networks:
+#            - network
     redis:
         image: 'redis:alpine'
         container_name: ${APP_NAME}_redis
@@ -68,41 +68,41 @@ services:
             test: [ "CMD", "redis-cli", "ping" ]
             retries: 3
             timeout: 5s
-    queue:
-        build:
-            context: ./docker/supervisor/queue
-        container_name: ${APP_NAME}_queue
-        volumes:
-            - ./:/var/www
-        networks:
-            - network
-    scheduler:
-        build:
-            context: ./docker/supervisor/schedule
-        container_name: ${APP_NAME}_scheduler
-        volumes:
-            - ./:/var/www
-        networks:
-            - network
-    websockets:
-        image: 'quay.io/soketi/soketi:latest-16-alpine'
-        container_name: ${APP_NAME}_websockets
-        environment:
-            DEBUG: '1'
-            METRICS_SERVER_PORT: '9601'
-            METRICS_ENABLED: '1'
-            SOKETI_DEFAULT_APP_ID: ${PUSHER_APP_ID}
-            SOKETI_DEFAULT_APP_KEY: ${PUSHER_APP_KEY}
-            SOKETI_DEFAULT_APP_SECRET: ${PUSHER_APP_SECRET}
-        networks:
-            - network
+#    queue:
+#        build:
+#            context: ./docker/supervisor/queue
+#        container_name: ${APP_NAME}_queue
+#        volumes:
+#            - ./:/var/www
+#        networks:
+#            - network
+#    scheduler:
+#        build:
+#            context: ./docker/supervisor/schedule
+#        container_name: ${APP_NAME}_scheduler
+#        volumes:
+#            - ./:/var/www
+#        networks:
+#            - network
+#    websockets:
+#        image: 'quay.io/soketi/soketi:latest-16-alpine'
+#        container_name: ${APP_NAME}_websockets
+#        environment:
+#            DEBUG: '1'
+#            METRICS_SERVER_PORT: '9601'
+#            METRICS_ENABLED: '1'
+#            SOKETI_DEFAULT_APP_ID: ${PUSHER_APP_ID}
+#            SOKETI_DEFAULT_APP_KEY: ${PUSHER_APP_KEY}
+#            SOKETI_DEFAULT_APP_SECRET: ${PUSHER_APP_SECRET}
+#        networks:
+#            - network
 networks:
     network:
         driver: bridge
 volumes:
     pgsql-volume:
         driver: local
-    mssql-volume:
-        driver: local
+#    mssql-volume:
+#        driver: local
     redis-volume:
         driver: local
