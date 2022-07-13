@@ -1,4 +1,4 @@
-FROM php:8.1-fpm-alpine
+FROM php:8.1-cli-alpine
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod uga+x /usr/local/bin/install-php-extensions \
@@ -16,9 +16,13 @@ RUN chmod uga+x /usr/local/bin/install-php-extensions \
         xmlrpc \
         zip
 
+RUN apk add --no-cache supervisor
+
 RUN rm -f /etc/localtime \
     && ln -sf /usr/share/zoneinfo/Asia/Almaty /etc/localtime \
     && echo 'Asia/Almaty' > /etc/timezone
 
-EXPOSE 9000
-CMD ["php-fpm"]
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+WORKDIR /etc/supervisor
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]

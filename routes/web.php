@@ -4,7 +4,17 @@ use App\Http\Controllers\Voyager\VoyagerServiceTokensController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    \App\Jobs\ProcessPodcast::dispatch();
+    \App\Events\BroadcastEvent::dispatch(\App\Models\User::first()->name);
+
+
     return view('welcome');
+});
+
+Route::get('send', function () {
+    \App\Events\BroadcastEvent::dispatch(\App\Models\User::first()->name);
+
+    return \App\Models\User::first()->name;
 });
 
 Route::group(['prefix' => 'admin'], function () {
