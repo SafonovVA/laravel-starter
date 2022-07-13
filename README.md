@@ -58,4 +58,11 @@ Look at `Makefile`
 $ docker exec -it APP_NAME_{php|scheduler|queue|websocket} bash
 $ docker exec -it APP_NAME_redis redis-cli
 $ docker exec -it APP_NAME_pgsql psql -U APP_NAME_admin -d APP_NAME
+$ docker exec -it APP_NAME_mssql /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P DB_PASSWORD
 ```
+
+### Switch to MSSQL database
+1. Change database name in `docker/mssql/create-database.sql` (from `test` to your name)
+2. Change php drivers in `docker/php/Dockerfile` from `pgsql` and `pdo_pgsql` to `sqlsrv` and `pdo_sqlsrv`
+3. Uncomment `mssql` section and volume in `docker-compose.yml`
+4. Change environment variables in `.env`
