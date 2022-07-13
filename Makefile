@@ -26,6 +26,7 @@ build:
 	${php_container} php artisan optimize:clear
 	${npm} install --silent
 	${npm} run build
+    ${php_container} chmod -R 0777 storage bootstrap/cache
 	echo 'Build success. App started at $(APP_URL)'
 
 .PHONY: up
