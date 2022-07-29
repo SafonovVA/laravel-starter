@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
-use stdClass;
 use OpenApi\Attributes as OAT;
 
 #[OAT\Info(
