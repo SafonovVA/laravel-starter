@@ -22,7 +22,7 @@ RUN rm -f /etc/localtime \
     && ln -sf /usr/share/zoneinfo/Asia/Almaty /etc/localtime \
     && echo 'Asia/Almaty' > /etc/timezone
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY start.sh /usr/local/bin/start
+RUN apk add --no-cache --upgrade bash && chmod u+x /usr/local/bin/start
 
-WORKDIR /etc/supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+CMD ["/usr/local/bin/start"]
