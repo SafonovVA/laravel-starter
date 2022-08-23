@@ -21,6 +21,7 @@ use Laravel\Sanctum\PersonalAccessToken;
  * @property Carbon|null $updated_at
  * @property-read Collection|PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
+ *
  * @method static ServiceFactory factory(...$parameters)
  * @method static Builder|Service newModelQuery()
  * @method static Builder|Service newQuery()

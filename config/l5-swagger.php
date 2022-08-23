@@ -206,7 +206,7 @@ return [
 
                     'passport' => []
                     */
-                    'sanctum' => []
+                    'sanctum' => [],
                 ],
             ],
         ],

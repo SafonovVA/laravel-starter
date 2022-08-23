@@ -37,6 +37,7 @@ use TCG\Voyager\Models\Role;
  * @property-read int|null $roles_count
  * @property-read Collection|PersonalAccessToken[] $tokens
  * @property-read int|null $tokens_count
+ *
  * @method static UserFactory factory(...$parameters)
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
@@ -53,7 +54,9 @@ use TCG\Voyager\Models\Role;
  * @method static Builder|User whereSettings($value)
  * @method static Builder|User whereUpdatedAt($value)
  * @mixin Eloquent
+ *
  * @property string|null $token
+ *
  * @method static Builder|User whereToken($value)
  */
 class User extends \TCG\Voyager\Models\User

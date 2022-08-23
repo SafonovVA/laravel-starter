@@ -15,7 +15,7 @@ class ServiceFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    #[ArrayShape(['name' => "string"])]
+    #[ArrayShape(['name' => 'string'])]
     public function definition(): array
     {
         return [

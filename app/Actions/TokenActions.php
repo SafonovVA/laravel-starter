@@ -22,12 +22,12 @@ class TokenActions extends AbstractAction
         return 'read';
     }
 
-    #[ArrayShape(['class' => "string", 'style' => "string"])]
+    #[ArrayShape(['class' => 'string', 'style' => 'string'])]
     public function getAttributes(): array
     {
         return [
             'class' => 'btn btn-sm btn-dark pull-right',
-            'style' => 'margin-right: 5px;'
+            'style' => 'margin-right: 5px;',
         ];
     }
 

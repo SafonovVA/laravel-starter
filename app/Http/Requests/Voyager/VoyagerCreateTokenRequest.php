@@ -19,12 +19,12 @@ class VoyagerCreateTokenRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    #[ArrayShape(['name' => "string", 'abilities' => "string"])]
+    #[ArrayShape(['name' => 'string', 'abilities' => 'string'])]
     public function rules(): array
     {
         return [
             'name' => 'required|string',
-            'abilities' => 'array|nullable'
+            'abilities' => 'array|nullable',
         ];
     }
 

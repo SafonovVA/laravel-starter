@@ -29,7 +29,7 @@ make build
     - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) - Debug Bar
     - [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) - Package generates helper files that enable your IDE to provide accurate autocompletion
     - [nunomaduro/larastan](https://github.com/nunomaduro/larastan) - Static Analyzer
-    - [stechstudio/laravel-php-cs-fixer](https://github.com/stechstudio/Laravel-PHP-CS-Fixer) - PHP Coding Style Fixer
+    - [laravel/pint](https://laravel.com/docs/9.x/pint) - PHP Coding Style Fixer
 2. JS
     - [bootstap 5](https://getbootstrap.com/) - Frontend toolkit
 

@@ -30,7 +30,7 @@ abstract class ApiController extends Controller
     {
         return response()->json([
             'success' => false,
-            'message' => $message
+            'message' => $message,
         ], $code);
     }
 }
