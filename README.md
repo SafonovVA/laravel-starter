@@ -46,9 +46,9 @@ php artisan ide-helper:models "App\Models\Post"
 ```bash
 composer larastan
 ```
-4. Coding style fix 
+4. Coding style fix
 ```bash
-composer cs-fix
+composer pint
 ```
 ### Docker support
 Look at `Makefile`
